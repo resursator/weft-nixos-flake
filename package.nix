@@ -47,7 +47,7 @@ let
     pname = "weft";
     inherit version src;
 
-    cargoHash = "sha256-eVt2lWmjn9kJPNtDYbhZb4fuhSzkEt4zlsCKEoBOH8E=";
+    cargoHash = "sha256-4JdkiUtm9ANrgTrKEfVVzEz9VecJRcocZgukB/CmUgI=";
 
     cargoBuildFlags = [
       "--workspace"
@@ -68,7 +68,7 @@ let
         --dist dist/Weft
 
       test -f dist/Weft/weft
-      test -n "$(ls dist/Weft/run/mods)"
+      test -d dist/Weft/run/mods
     '';
 
     installPhase = ''
@@ -86,17 +86,7 @@ in
 writeShellScriptBin "weft" ''
   set -eu
 
-  data_home="''${XDG_DATA_HOME:-$HOME/.local/share}"
-  weft_data="$data_home/weft-${version}"
-
-  if [ ! -d "$weft_data/run/mods" ]; then
-    mkdir -p "$data_home"
-    cp -a "${weft}/share/weft" "$weft_data"
-    chmod -R u+rwX "$weft_data"
-  fi
-
   export LD_LIBRARY_PATH="${runtimeLibraryPath}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 
-  cd "$weft_data"
-  exec "$weft_data/weft" "$@"
+  exec "${weft}/share/weft/weft" "$@"
 ''
