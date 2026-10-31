@@ -11,6 +11,7 @@
       version = "26.10.3";
 
       src = pkgs.fetchFromGitHub {
+        name = "weft-${version}-source";
         owner = "Weft-Rust";
         repo = "Weft";
         rev = "v${version}";
