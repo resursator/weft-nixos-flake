@@ -47,7 +47,7 @@ let
     pname = "weft";
     inherit version src;
 
-    cargoHash = "sha256-WhwMfZRraXEifSWgVv0GaCAxU1Cso96EW9ray07K9mI=";
+    cargoHash = "sha256-RobdLJVa/Yvz1GSm2Cl5xQ1AyDec3hf7N62oZ0ah0WQ=";
 
     cargoBuildFlags = [
       "--workspace"
@@ -65,7 +65,7 @@ let
       mkdir -p dist
 
       target/${stdenv.hostPlatform.rust.rustcTarget}/release/weft \
-        --dist dist/Weft
+        dist dist/Weft
 
       test -f dist/Weft/weft
       test -d dist/Weft/run/mods
