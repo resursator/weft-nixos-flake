@@ -47,7 +47,7 @@ let
     pname = "weft";
     inherit version src;
 
-    cargoHash = "sha256-RobdLJVa/Yvz1GSm2Cl5xQ1AyDec3hf7N62oZ0ah0WQ=";
+    cargoHash = "sha256-ezW4E3hCkf3Nv48rvat5KL9x6V9cfKn9rjYCJ4LACJU=";
 
     cargoBuildFlags = [
       "--workspace"
