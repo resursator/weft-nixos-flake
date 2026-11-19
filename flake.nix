@@ -8,14 +8,14 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
 
-      version = "26.11.5";
+      version = "26.11.6";
 
       src = pkgs.fetchFromGitHub {
         name = "weft-${version}-source";
         owner = "Weft-Rust";
         repo = "Weft";
         rev = "v${version}";
-        hash = "sha256-tXcC8jgi/aMWyjyXKstFGfzgn9/81FBBb2OKilKkwhk=";
+        hash = "sha256-FBRvONfFWklV7oR2dIFeLY+uw5qF96UTM9WYUxE9Dlg=";
       };
 
       weft = pkgs.callPackage ./package.nix {
