@@ -11,6 +11,8 @@ on:
       - flake.nix
       - flake.lock
       - package.nix
+    branches-ignore:
+      - 'bot/**'
   workflow_dispatch:
 
 permissions:
