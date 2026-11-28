@@ -22,6 +22,7 @@ jobs:
   update:
     name: Check and update upstream release
     runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/main'
 
     outputs:
       needed: ${{ steps.check.outputs.needed }}
