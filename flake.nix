@@ -1,5 +1,5 @@
 {
-  description = "Weft voxel sandbox engine";
+  description = "Weft voxel sandbox engine (portals-next)";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -8,14 +8,14 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
 
-      version = "26.11.8";
+      version = "26.11.8-portals";
 
       src = pkgs.fetchFromGitHub {
         name = "weft-${version}-source";
-        owner = "Weft-Rust";
+        owner = "Yeyti";
         repo = "Weft";
-        rev = "v${version}";
-        hash = "sha256-mIBFY9BmsQkAfSluUrrvjLrxPxgTqHhHs7g+yO4lOMw=";
+        rev = "26276fb13234e0da7e1742a21a83d0df534a90e5";
+        hash = "sha256-SHkdI/rGxgMf9khXkFVcbosFsN/uyLjrJ/WUmeR/zPY=";
       };
 
       weft = pkgs.callPackage ./package.nix {
